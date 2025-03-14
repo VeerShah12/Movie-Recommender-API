@@ -70,47 +70,11 @@ This microservice allows users to **add, update, delete, and fetch reviews** for
 
 ---
 
-## 4. User Preference Service
-
-### Description
-
-This microservice allows users to store and manage their **favorite genres and movies**, which can be used for personalized recommendations in the future.
-
-### Structure
-
-- **Entity**: `UserPreference` (id, userId, favoriteGenres, favoriteMovies)
-- **Repository**: `UserPreferenceRepository` (handles database operations)
-- **Service**: `UserPreferenceService` (performs business logic for user preferences)
-- **Controller**: `UserPreferenceController` (handles API requests)
-
-### Endpoints
-
-- `GET /api/user-preferences/{userId}` - Retrieve user preferences
-- `POST /api/user-preferences` - Add or update user preferences
-- `DELETE /api/user-preferences/{id}` - Delete user preferences
-
----
-
 ## Technology Stack
 
 - **Spring Boot** - Microservices Framework
 - **Spring Data JPA** - Database interaction
 - **Spring Security** - Authentication & Authorization
 - **MySQL** - Database for storing data
-
----
-
-## How to Run the Services
-
-1. Ensure **MySQL** is running. Update database credentials in `application.properties` if needed.
-2. Start each microservice individually:
-   ```bash
-   mvn spring-boot:run
-   ```
-3. The services run on the following ports:
-   - **User Service** → `8080`
-   - **Movies Service** → `8081`
-   - **Review Service** → `8082`
-   - **User Preference Service** → `8083`
 
 ---
