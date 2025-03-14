@@ -25,13 +25,12 @@ public class  WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/").permitAll()
-                        .requestMatchers("/home").hasAuthority("USER")
-                        .requestMatchers("/admin").hasAuthority("ADMIN")
+                        .requestMatchers("/auth/register").permitAll()
+                        .requestMatchers("/users").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
-                .httpBasic(withDefaults()) // Updated httpBasic configuration
-                .csrf(csrf -> csrf.disable()); // Disable CSRF if using a stateless API
+                .httpBasic(withDefaults()) // Basic Auth
+                .csrf(csrf -> csrf.disable()); // Disable CSRF for stateless API
 
         return http.build();
     }
