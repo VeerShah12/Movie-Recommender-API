@@ -6,20 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="userRegAndLogin" />
+        <module name="EurekaServer" />
       </profile>
-      <profile name="Annotation profile for movie_service" enabled="true">
+      <profile name="Annotation profile for userRegAndLogin" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="userRegAndLogin" />
         <module name="movie_service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="apiGateway" target="23" />
       <module name="recommendation" target="23" />
       <module name="review" target="23" />
       <module name="userPref" target="23" />
@@ -27,6 +28,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EurekaServer" options="-parameters" />
+      <module name="apiGateway" options="-parameters" />
       <module name="movie_service" options="-parameters" />
       <module name="recommendation" options="-parameters" />
       <module name="review" options="-parameters" />
