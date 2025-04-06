@@ -3,7 +3,6 @@ package com.example.controller;
 import com.example.entity.Movies;
 import com.example.service.MoviesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,19 +41,16 @@ public class MoviesController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
     public Movies createMovies(@RequestBody Movies movies) {
         return moviesService.saveMovies(movies);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
     public Movies updateMovies(@PathVariable int id, @RequestBody Movies moviesDetails) {
         return moviesService.updateMovies(id, moviesDetails);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteMovies(@PathVariable int id) {
         moviesService.deleteMovies(id);
     }
