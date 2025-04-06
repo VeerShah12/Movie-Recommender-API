@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/userPref/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/apiGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/review_service/pom.xml" />
       </list>
     </option>
   </component>
