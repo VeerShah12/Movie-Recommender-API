@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.3</version>
+		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>movie_service</artifactId>
+	<artifactId>review_service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>movie_service</name>
-	<description>movie crud</description>
+	<name>review_service</name>
+	<description>Review microservice</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -27,8 +27,8 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>23</java.version>
-		<spring-cloud.version>2024.0.0</spring-cloud.version>
+		<java.version>24</java.version>
+		<spring-cloud.version>2024.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -100,6 +100,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

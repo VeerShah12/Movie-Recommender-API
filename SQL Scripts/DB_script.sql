@@ -62,3 +62,20 @@ INSERT INTO movies (id, title, release_year, genre, rating, popularity) VALUES
 (48, 'Ratatouille', 2007, 'Animation', 8.1, 4400),
 (49, 'The Irishman', 2019, 'Crime', 7.8, 3700),
 (50, 'Once Upon a Time in Hollywood', 2019, 'Comedy', 7.6, 4100);
+
+
+CREATE TABLE Review (
+    reviewID INT AUTO_INCREMENT PRIMARY KEY,
+    userID BIGINT NOT NULL,
+    movieID INT NOT NULL,
+    rating DECIMAL(3,2) NOT NULL,
+    comment TEXT,
+    FOREIGN KEY (userID) REFERENCES user_entity(ID),
+    FOREIGN KEY (movieID) REFERENCES movies(ID),
+    CHECK (rating >= 0.00 AND rating <= 10.00)
+);
+
+INSERT INTO Review (userID, movieID, rating, comment)
+VALUES (1, 1, 8.5, "Great movie with mind bending concepts!");
+
+SELECT * FROM Review;
