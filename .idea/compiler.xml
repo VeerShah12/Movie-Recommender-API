@@ -9,14 +9,14 @@
         <module name="EurekaServer" />
         <module name="API-Gateway" />
       </profile>
-      <profile name="Annotation profile for userRegAndLogin" enabled="true">
+      <profile name="Annotation profile for recommendation_service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="userRegAndLogin" />
+        <module name="recommendation_service" />
         <module name="review_service" />
         <module name="movie_service" />
       </profile>
@@ -26,6 +26,7 @@
       <module name="recommendation" target="23" />
       <module name="review" target="23" />
       <module name="userPref" target="23" />
+      <module name="userRegAndLogin" target="23" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -35,6 +36,7 @@
       <module name="apiGateway" options="-parameters" />
       <module name="movie_service" options="-parameters" />
       <module name="recommendation" options="-parameters" />
+      <module name="recommendation_service" options="-parameters" />
       <module name="review" options="-parameters" />
       <module name="review_service" options="-parameters" />
       <module name="userPref" options="-parameters" />
