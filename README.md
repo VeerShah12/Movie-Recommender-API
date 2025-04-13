@@ -1,29 +1,6 @@
 # Movie Recommender System - Microservices Documentation
 
-## 1. User Registration & Login Service
-
-### Description
-
-This microservice handles user authentication and authorization. It enables users to register, log in, and access different roles (**USER/ADMIN**). **Spring Security** is used for authentication.
-
-### Structure
-
-- **Entity**: `UserEntity` (id, username, password, role)
-- **Repository**: `UserRepo` (handles database operations)
-- **Service**: `CustomUserDetailsService` (fetches user details for authentication)
-- **Security**: `WebSecurityConfiguration` (configures access rules, password encoding)
-- **Controller**: `HomeController` (handles basic endpoints)
-
-### Endpoints
-
-- `POST /register` - User registration _(to be implemented)_
-- `POST /login` - User authentication
-- `GET /home` - Accessible to authenticated users
-- `GET /admin` - Accessible to **ADMIN** users only
-
----
-
-## 2. Movies Service
+## 1. Movies Service
 
 ### Description
 
@@ -46,7 +23,7 @@ This microservice manages the **movie database**, including adding, updating, re
 
 ---
 
-## 3. Review Service
+## 2. Review Service
 
 ### Description
 
@@ -69,12 +46,56 @@ This microservice allows users to **add, update, delete, and fetch reviews** for
 - `DELETE /api/reviews/{id}` - Delete a review
 
 ---
+## 3. Recommendation Service
+
+### Description
+
+This microservice provides movie recommendations based on:
+- Movie similarity (genre, rating, popularity)
+- User preferences (genre, rating threshold, popularity threshold)
+
+### Structure
+
+- **Model**: `Movie` DTO (same as in Movies Service)
+- **Client**: `MovieClient` (Feign client to fetch movie data from Movies Service)
+- **Service**: `RecommendationService` – logic for generating recommendations
+- **Controller**: `RecommendationController` – REST endpoints
+
+### Endpoints
+
+- `GET /api/recommend/title/{title}` – Recommend movies similar to a given title  
+- `GET /api/recommend/preference?genre=&minRating=&minPopularity=` – Recommend movies based on user preferences  
+
+---
+
+## 4. API Gateway
+
+### Description
+
+Acts as a single entry point for clients to access all backend microservices. 
+
+### Example Routes
+
+- `/movies/**` → forwarded to Movies Service  
+- `/reviews/**` → forwarded to Review Service  
+- `/recommend/**` → forwarded to Recommendation Service  
+
+---
 
 ## Technology Stack
 
+| Layer         | Technology            |
+|---------------|------------------------|
+| Language      | Java 17+               |
+| Framework     | Spring Boot            |
+| Service Calls | Spring Cloud OpenFeign |
+| Database      | MySQL                  |
+| ORM           | Spring Data JPA        |
+| API Gateway   | Spring Cloud Gateway   |
+| Discovery     | Eureka                 |
+
 - **Spring Boot** - Microservices Framework
 - **Spring Data JPA** - Database interaction
-- **Spring Security** - Authentication & Authorization
 - **MySQL** - Database for storing data
 
 ---
