@@ -79,3 +79,46 @@ INSERT INTO Review (userID, movieID, rating, comment)
 VALUES (1, 1, 8.5, "Great movie with mind bending concepts!");
 
 SELECT * FROM Review;
+
+CREATE TABLE movie_trailers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    movie_id INT NOT NULL,
+    youtube_url VARCHAR(255) NOT NULL,
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+
+INSERT INTO movie_trailers (movie_id, youtube_url) VALUES
+(1, 'https://www.youtube.com/watch?v=YoHD9XEInc0'), -- Inception
+(2, 'https://www.youtube.com/watch?v=EXeTwQWrcwY'), -- The Dark Knight
+(3, 'https://www.youtube.com/watch?v=zSWdZVtXT7E'), -- Interstellar
+(4, 'https://www.youtube.com/watch?v=vKQi3bBA1y8'), -- The Matrix
+(5, 'https://www.youtube.com/watch?v=s7EdQ4FqbhY'), -- Pulp Fiction
+(6, 'https://www.youtube.com/watch?v=bLvqoHBptjg'), -- Forrest Gump
+(7, 'https://www.youtube.com/watch?v=6hB3S9bIaco'), -- The Shawshank Redemption
+(8, 'https://www.youtube.com/watch?v=sY1S34973zA'), -- The Godfather
+(9, 'https://www.youtube.com/watch?v=qJr92K_hKl0'), -- The Godfather: Part II
+(10, 'https://www.youtube.com/watch?v=r5X-hFf6Bwo'), -- LOTR: Return of the King
+(11, 'https://www.youtube.com/watch?v=V75dMMIW2B4'), -- LOTR: Fellowship
+(12, 'https://www.youtube.com/watch?v=LbfMDwc4azU'), -- LOTR: Two Towers
+(13, 'https://www.youtube.com/watch?v=TcMBFSGVi1c'), -- Avengers: Endgame
+(14, 'https://www.youtube.com/watch?v=6ZfuNTqbHE8'), -- Avengers: Infinity War
+(15, 'https://www.youtube.com/watch?v=owK1qxDselE'), -- Gladiator
+(16, 'https://www.youtube.com/watch?v=2e-eXJ6HgkQ'), -- Titanic
+(17, 'https://www.youtube.com/watch?v=gG22XNhtnoY'), -- Schindler's List
+(18, 'https://www.youtube.com/watch?v=W6Mm8Sbe__o'), -- The Silence of the Lambs
+(19, 'https://www.youtube.com/watch?v=vwAxi4AqYcY'), -- Saving Private Ryan
+(20, 'https://www.youtube.com/watch?v=SUXWAEX2jlg'), -- Fight Club
+(21, 'https://www.youtube.com/watch?v=Ki4haFrqSrw'), -- The Green Mile
+(22, 'https://www.youtube.com/watch?v=eUdM9vrCbow'), -- Django Unchained
+(23, 'https://www.youtube.com/watch?v=iojhqm0JTW4'), -- The Departed
+(24, 'https://www.youtube.com/watch?v=7d_jQycdQGo'), -- Whiplash
+(25, 'https://www.youtube.com/watch?v=zAGVQLHvwOY'), -- Joker
+(26, 'https://www.youtube.com/watch?v=o4gHCmTQDVI'), -- The Prestige
+(27, 'https://www.youtube.com/watch?v=5xH0HfJHsaY'), -- Parasite
+(28, 'https://www.youtube.com/watch?v=1Fg5iWmQjwk'), -- The Grand Budapest Hotel
+(29, 'https://www.youtube.com/watch?v=38A__WT3-o0'), -- No Country for Old Men
+(30, 'https://www.youtube.com/watch?v=5iaYLCiq5RM'), -- Shutter Island
+(31, 'https://www.youtube.com/watch?v=hEJnMQG9ev8'), -- Mad Max: Fury Road
+(32, 'https://www.youtube.com/watch?v=LoebZZ8K5N0'), -- The Revenant
+(33, 'https://www.youtube.com/watch?v=gCcx85zbxz4'); -- Blade Runner 2049
+

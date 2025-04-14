@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Preference-Based Recommendations</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .movie-card { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; }
+        iframe { max-width: 100%; height: 315px; }
+    </style>
+</head>
+<body>
+<h1>Movies Recommended Based on Your Preferences</h1>
+
+<p>Genre: <strong th:text="${genre} ?: 'Any'"></strong></p>
+<p>Min Rating: <strong th:text="${minRating} ?: 'Any'"></strong></p>
+<p>Min Popularity: <strong th:text="${minPopularity} ?: 'Any'"></strong></p>
+
+<div th:each="movie : ${movies}" class="movie-card">
+    <h2 th:text="${movie.title}">Movie Title</h2>
+    <p><strong>Genre:</strong> <span th:text="${movie.genre}"></span></p>
+    <p><strong>Rating:</strong> <span th:text="${movie.rating}"></span></p>
+    <p><strong>Popularity:</strong> <span th:text="${movie.popularity}"></span></p>
+
+    <div th:if="${movie.trailerUrl != null}">
+        <iframe th:src="'https://www.youtube.com/embed/' + ${#strings.substring(movie.trailerUrl, movie.trailerUrl.indexOf('v=') + 2)}"
+                frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+</body>
+</html>
