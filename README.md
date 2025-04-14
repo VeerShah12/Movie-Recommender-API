@@ -50,21 +50,26 @@ This microservice allows users to **add, update, delete, and fetch reviews** for
 
 ### Description
 
-This microservice provides movie recommendations based on:
-- Movie similarity (genre, rating, popularity)
-- User preferences (genre, rating threshold, popularity threshold)
-
-### Structure
-
-- **Model**: `Movie` DTO (same as in Movies Service)
-- **Client**: `MovieClient` (Feign client to fetch movie data from Movies Service)
-- **Service**: `RecommendationService` – logic for generating recommendations
-- **Controller**: `RecommendationController` – REST endpoints
+Provides movie recommendations based on:
+- Similar movies (by title, genre, rating, popularity)
+- User preferences (genre, rating, popularity)
+- Also serves an HTML UI with embedded YouTube trailers
 
 ### Endpoints
 
-- `GET /api/recommend/title/{title}` – Recommend movies similar to a given title  
-- `GET /api/recommend/preference?genre=&minRating=&minPopularity=` – Recommend movies based on user preferences  
+#### API (JSON)
+- `GET /api/recommend/title/{title}` – Recommend movies similar to a given title
+- `GET /api/recommend/preference` – Recommend movies by genre, rating, and popularity
+
+#### UI (HTML)
+- `GET /recommend/ui/title/{title}` – Show recommendations with trailers
+- `GET /recommend/ui/preferences` – Form to input preferences
+- `GET /recommend/ui/results` – Show recommendations based on preferences
+
+### Tech Stack
+- Spring Boot + Thymeleaf for web UI
+- Spring Data JPA for database access
+- Feign Client to fetch movie data
 
 ---
 
