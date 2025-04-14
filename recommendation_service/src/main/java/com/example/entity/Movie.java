@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.entity;
 
 public class Movie {
 
@@ -8,6 +8,15 @@ public class Movie {
     private String genre;
     private Double rating;
     private Double popularity;
+    private String trailerUrl;
+
+    public String getTrailerUrl() {
+        return trailerUrl;
+    }
+
+    public void setTrailerUrl(String trailerUrl) {
+        this.trailerUrl = trailerUrl;
+    }
 
     public Double getPopularity() {
         return popularity;

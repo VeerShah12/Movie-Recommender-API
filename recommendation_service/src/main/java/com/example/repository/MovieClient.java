@@ -1,6 +1,6 @@
-package com.example.client;
+package com.example.repository;
 
-import com.example.model.Movie;
+import com.example.entity.Movie;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
